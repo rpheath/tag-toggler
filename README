@@ -1,0 +1,20 @@
+jQuery Plugin: Tag Toggler
+__________________________
+
+Description:
+  
+  This plugin provides a means of selecting tags for a
+  web form. Click a tag once to add it to the list; click
+  the tag again to remove it.
+
+Usage:
+
+  $(document).ready(function() {
+    // assumes you have <input id="tags" ... />
+    $('p.tags a').toggleTags();
+    
+    // allows you to set your own <input ... />
+    $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })
+  })
+  
+  // see 'example.html' for working example ...

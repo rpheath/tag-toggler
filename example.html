@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>jQuery: Tag Toggler Plugin Example</title>
+    <style type="text/css">
+      body {
+        font-family: 'lucida grande', helvetica, arial;
+      }
+      #wrapper {
+        width: 700px;
+        border: 1px solid #ddd;
+        background: #f1f1f1;
+        margin: 25px auto;
+        padding: 50px;
+        text-align: center;
+      }
+      a:link,
+      a:visited {
+        color: #000;
+        margin: 0 5px;
+      }
+      a:hover {
+        background: #ccc;
+      }
+      p {
+        margin: 20px 0;
+        line-height: 150%;
+      }
+      label {
+        font-size: 25px;
+        color: #999;
+      }
+      input {
+        width: 550px;
+        font-size: 20px;
+        padding: 5px;
+        border: 5px solid #444;
+      }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+    <script src="./jquery.tag-toggler.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        // this is all you have to do
+        $('p.tags a').toggleTags()
+      })
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <label>Tags:</label> <input id="tags" type="text" name="tags" />
+      <p class="tags">
+        <a href="#">ajax</a> <a href="#">api</a> <a href="#">apple</a> <a href="#">asp</a> <a href="#">audi</a> <a href="#">books</a> <a href="#">browsers</a> <a href="#">business</a> <a href="#">camera</a> <a href="#">capistrano</a> <a href="#">cars</a> <a href="#">collaboration</a> <a href="#">college</a> <a href="#">colors</a> <a href="#">comedy</a> <a href="#">creativity</a> <a href="#">css</a> <a href="#">data-analysis</a> <a href="#">del.icio.us</a> <a href="#">design</a> <a href="#">programming</a> <a href="#">rails</a> <a href="#">reference</a> <a href="#">reflection</a> <a href="#">rss</a> <a href="#">ruby</a> <a href="#">site</a> <a href="#">spam</a> <a href="#">sports</a> <a href="#">sql</a> <a href="#">standards</a> <a href="#">statistics</a> <a href="#">svn</a> <a href="#">technology</a> <a href="#">time</a> <a href="#">tools</a> <a href="#">typography</a> <a href="#">usability</a> <a href="#">users</a> <a href="#">video</a> <a href="#">views</a> <a href="#">vw</a> <a href="#">weather</a> <a href="#">web</a> <a href="#">webapps</a> <a href="#">windows</a> <a href="#">work</a> <a href="#">writing</a>
+      </p>
+    </div>
+  </body>
+</html>
