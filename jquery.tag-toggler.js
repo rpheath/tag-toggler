@@ -1,4 +1,4 @@
-/*  jQuery Plugin: Tag Toggler
+/** jQuery Plugin: Tag Toggler
  *    creator: Ryan Heath (http://rpheath.com)
  *
  ** Description:
