@@ -57,7 +57,7 @@ $.fn.toggleTags = function(options) {
       // - tb   => textbox in question
       // - tag  => tag to remove
       remove: function(tb, tag) {
-        var tags = $.grep(tb.val().split(settings.separator), function(t) { return (t != tag); })
+        var tags = $.grep(tb.val().split(settings.separator), function(t) { return (t != tag) })
         tb.val(tags.join(settings.separator))
       },
       // appends a tag to the value of a textbox (comma-delimited)
