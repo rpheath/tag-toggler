@@ -22,7 +22,7 @@
  *          </p>
  *        </div>
  *
- *    1)  You'd do...
+ *    1) You'd do...
  *
  *        $(document).ready(function() {
  *          $('p.tags a').toggleTags()
@@ -34,13 +34,20 @@
  *          $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })   
  *        })
  *
+ *    3) Custom separator...
+ *
+ *        $(document).ready(function() {
+ *          $('p.tags a').toggleTags({ separator: '| ' })
+ *        })
+ *
  *    See 'example.html' for real-world usage ...
  */
  
 $.fn.toggleTags = function(options) {
   // defaults
   var settings = $.extend({
-    text_box: 'input#tags'
+    text_box: 'input#tags',
+    separator: ', '
   }, options)
   
   // tagFunctions namespace
@@ -50,23 +57,17 @@ $.fn.toggleTags = function(options) {
       // - tb   => textbox in question
       // - tag  => tag to remove
       remove: function(tb, tag) {
-        tb.val(tb.val().replace(tag, ''))
+        var tags = $.grep(tb.val().split(settings.separator), function(t) { return (t != tag); })
+        tb.val(tags.join(settings.separator))
       },
       // appends a tag to the value of a textbox (comma-delimited)
       // - tb   => textbox in question
       // - tag  => tag to remove
       append: function(tb, tag) {
-        if (tb.val().length > 0 && tb.val().charAt(tb.val().length - 1) != ', ') {
-          tb.val(tb.val() + ', ') 
+        if (tb.val().length > 0 && tb.val().charAt(tb.val().length - 1) != settings.separator) {
+          tb.val(tb.val() + settings.separator) 
         }
         tb.val(tb.val() + tag)
-      },
-      // cleans up the crap from remove/appending tags
-      // - tb   => textbox in question
-      cleanup: function(tb) {
-        tb.val(tb.val().replace(/(, ,)|(,,)/, ','))
-        tb.val(tb.val().replace(/(^[^a-z])|((,|, )$)/, ''))
-        tb.val($.trim(tb.val()))
       }
     }
   })
@@ -75,7 +76,7 @@ $.fn.toggleTags = function(options) {
   this.click(function() {
     // vars
     var tb = $(settings.text_box),
-        tag = this.innerHTML;
+        tag = this.innerHTML
     
     // is it already in the list of tags?
     // if so, remove it; if not, add it
@@ -83,10 +84,7 @@ $.fn.toggleTags = function(options) {
       $.tagFunctions.remove(tb, tag)
     } else {
       $.tagFunctions.append(tb, tag)
-    }    
-    
-    // cleanup
-    $.tagFunctions.cleanup(tb)
+    }
   })
   
   // keep the chaining alive

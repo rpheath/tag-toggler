@@ -15,6 +15,9 @@ Usage:
     
     // allows you to set your own <input ... />
     $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })
+    
+    // supports a custom separator
+    $('p.tags a').toggleTags({ separator: '| ' })
   })
   
   // see 'example.html' for working example ...
