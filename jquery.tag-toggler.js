@@ -1,46 +1,44 @@
 /*  jQuery Plugin: Tag Toggler
  *    creator: Ryan Heath (http://rpheath.com)
  *
- *  Description:
+ ** Description:
  *    This plugin provides a means of choosing tags for a
  *    web form. Click a tag once to add it to a specified
  *    text box; click the tag again to remove it.
  *
- *  Dependencies:
+ ** Dependencies:
  *    - jQuery 1.2.6
  *      (although it should work for prior versions, too)
  *
- *  Example(s):
+ ** Example(s):
  *    Assuming the following markup...
  *
- *        <div>
- *          <input id="tags" type="text" name="tags" />
- *          <p class="tags">
- *            <a href="#">web</a>
- *            <a href="#">design</a>
- *            <a href="#">jquery</a>
- *          </p>
- *        </div>
+ *      <div>
+ *        <input id="tags" type="text" name="tags" />
+ *        <p class="tags">
+ *          <a href="#">web</a>
+ *          <a href="#">design</a>
+ *          <a href="#">jquery</a>
+ *        </p>
+ *      </div>
  *
- *    1) You'd do...
+ **** EX 1: typical usage
+ *      $(document).ready(function() {
+ *        $('p.tags a').toggleTags()
+ *      })
  *
- *        $(document).ready(function() {
- *          $('p.tags a').toggleTags()
- *        })
+ **** EX 2: custom <input ... /> tag
+ *      $(document).ready(function() {
+ *        $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })   
+ *      })
  *
- *    2) If you don't have <input id="tags" ... />
+ **** EX 3: custom separator...
+ *      $(document).ready(function() {
+ *        $('p.tags a').toggleTags({ separator: '| ' })
+ *      })
  *
- *        $(document).ready(function() {
- *          $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })   
- *        })
+ ** (See 'example.html' for a working demo)
  *
- *    3) Custom separator...
- *
- *        $(document).ready(function() {
- *          $('p.tags a').toggleTags({ separator: '| ' })
- *        })
- *
- *    See 'example.html' for real-world usage ...
  */
  
 $.fn.toggleTags = function(options) {
