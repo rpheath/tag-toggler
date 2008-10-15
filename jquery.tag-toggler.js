@@ -22,17 +22,17 @@
  *        </p>
  *      </div>
  *
- **** EX 1: typical usage
+ * >> EX 1: typical usage
  *      $(document).ready(function() {
  *        $('p.tags a').toggleTags()
  *      })
  *
- **** EX 2: custom <input ... /> tag
+ * >> EX 2: custom <input ... /> tag
  *      $(document).ready(function() {
  *        $('p.tags a').toggleTags({ text_box: 'input#your_text_box_id' })   
  *      })
  *
- **** EX 3: custom separator...
+ * >> EX 3: custom separator...
  *      $(document).ready(function() {
  *        $('p.tags a').toggleTags({ separator: '| ' })
  *      })
